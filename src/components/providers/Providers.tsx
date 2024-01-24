@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { TanStackQueryProvider } from "./TanStackQueryProvider";
+import { ReactNode } from 'react';
+import { TanStackQueryProvider } from './TanStackQueryProvider';
 
 export interface IProvidersProps {
   children: ReactNode;
