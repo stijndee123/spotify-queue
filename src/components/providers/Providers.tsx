@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { TanStackQueryProvider } from './TanStackQueryProvider';
+import { ThemeProvider } from './ThemeProvider';
 
 export interface IProvidersProps {
   children: ReactNode;
@@ -8,7 +9,14 @@ export interface IProvidersProps {
 export function Providers({ children }: IProvidersProps) {
   return (
     <>
-      <TanStackQueryProvider>{children}</TanStackQueryProvider>
+      <ThemeProvider
+        attribute='class'
+        defaultTheme='system'
+        enableSystem
+        disableTransitionOnChange
+      >
+        <TanStackQueryProvider>{children}</TanStackQueryProvider>
+      </ThemeProvider>
     </>
   );
 }
