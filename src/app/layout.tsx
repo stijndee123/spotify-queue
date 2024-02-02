@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          'h-screen w-full text-zinc-900 antialiased dark:bg-zinc-950 dark:text-white'
+          'h-screen w-full bg-zinc-100 text-zinc-900 antialiased dark:bg-zinc-900 dark:text-white'
         )}
       >
         <Providers>{children}</Providers>

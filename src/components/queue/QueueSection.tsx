@@ -8,6 +8,7 @@ import { getPlaybackQueue } from '../../server/actions';
 import { Section } from '../Section';
 import { AddSongButton } from '../form/AddSongButton';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
+import { Separator } from '../ui/separator';
 import { SongCard } from './SongCard';
 
 export function QueueSection() {
@@ -22,8 +23,8 @@ export function QueueSection() {
     <Section
       id='queue'
       title='Warteschlange'
-      description='Alle Songs die in der Warteschlange sind'
       loading={isLoading || isFetching}
+      className='gap-5'
     >
       <AddSongButton />
       {isError && (
@@ -40,6 +41,9 @@ export function QueueSection() {
           {data?.currentlyPlaying && (
             <SongCard {...data.currentlyPlaying} currentlyPlaying />
           )}
+          <div>
+            <Separator className='my-4'></Separator>
+          </div>
           {data?.queue.map((song, index) => <SongCard key={index} {...song} />)}
         </div>
       )}

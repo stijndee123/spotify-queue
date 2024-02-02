@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { HiMiniSpeakerWave } from 'react-icons/hi2';
+import { Card } from '../ui/card';
 
 export interface ISongCardProps {
   title: string;
@@ -17,23 +18,6 @@ function convertDuration(duration: number) {
   return `${minutes}:${Number(seconds) < 10 ? '0' : ''}${seconds}`;
 }
 
-function renderChildren(
-  duration: number,
-  currentPlaying?: boolean,
-  children?: ReactNode
-) {
-  if (children) return children;
-  if (currentPlaying)
-    return (
-      <HiMiniSpeakerWave className='text-lg text-green-600 dark:text-green-400' />
-    );
-  return (
-    <div className='text-xs text-gray-500 dark:text-gray-400'>
-      {convertDuration(duration)}
-    </div>
-  );
-}
-
 export function SongCard({
   title,
   artists,
@@ -43,24 +27,32 @@ export function SongCard({
   children,
 }: ISongCardProps) {
   return (
-    <div className='flex items-center gap-4'>
+    <Card className='flex items-center gap-4 rounded-lg p-2 dark:border-zinc-700 dark:bg-zinc-800'>
       <Image
         alt='Cover'
-        className='rounded-lg border-2 object-cover p-1 dark:border-zinc-800'
-        height={60}
+        className='rounded-md'
+        width={50}
+        height={50}
         src={coverUrl}
         style={{
-          aspectRatio: '60/60',
+          aspectRatio: '50/50',
         }}
-        width={60}
       />
-      <div className='flex-1'>
-        <div className='text-sm font-medium'>{title}</div>
-        <div className='text-xs text-gray-500 dark:text-gray-400'>
+      <div className='flex flex-1 flex-col justify-between overflow-hidden leading-tight'>
+        <span className='text-xs font-semibold'>{title}</span>
+        <span className='text-nowrap text-xs dark:text-zinc-400'>
           {artists}
-        </div>
+        </span>
       </div>
-      {renderChildren(duration, currentlyPlaying, children)}
-    </div>
+      <div className='flex items-center justify-center'>
+        {children ? (
+          <>{children}</>
+        ) : currentlyPlaying ? (
+          <HiMiniSpeakerWave className='text-lg text-green-500 drop-shadow-lg dark:text-green-500' />
+        ) : (
+          <span className='text-xs'>{convertDuration(duration)}</span>
+        )}
+      </div>
+    </Card>
   );
 }

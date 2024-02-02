@@ -3,11 +3,7 @@ import { PlaylistCard } from './PlaylistCard';
 
 export function PlaylistsSection() {
   return (
-    <Section
-      id='playlists'
-      title='Playlisten'
-      description='Alle Playlisten die benutzt werden'
-    >
+    <Section id='playlists' title='Playlisten'>
       <div className='grid grid-cols-2 gap-2'>
         <PlaylistCard
           href='https://open.spotify.com/playlist/38bqIPyv8JUss1INV55vHj?si=a7ed35a2f0664cf6'

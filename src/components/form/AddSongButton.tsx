@@ -23,7 +23,9 @@ export function AddSongButton() {
   return (
     <Credenza open={open} onOpenChange={setOpen}>
       <CredenzaTrigger asChild>
-        <Button className='w-full'>Lied hinzufügen</Button>
+        <Button className='w-full' variant='purple'>
+          Lied hinzufügen
+        </Button>
       </CredenzaTrigger>
       <CredenzaContent>
         <AddSongForm onAddSong={onAddSong} />

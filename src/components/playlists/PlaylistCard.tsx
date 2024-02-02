@@ -11,16 +11,16 @@ export function PlaylistCard({ href, title, coverUrl }: IPlaylistCardProps) {
     <a
       href={href}
       target='_blank'
-      className='flex aspect-square flex-col rounded-lg border-2 dark:border-zinc-800'
+      className='flex flex-col rounded-lg border-2 dark:border-zinc-800'
     >
       <Image
         src={coverUrl}
         alt='Cover'
         width={200}
         height={200}
-        className='w-full flex-1 rounded-t-lg'
+        className='h-full w-full flex-1 rounded-t-lg'
       />
-      <div className='flex-initial p-2'>
+      <div className='h-12 flex-initial overflow-hidden p-2'>
         <h3 className='text-xs font-medium'>{title}</h3>
       </div>
     </a>

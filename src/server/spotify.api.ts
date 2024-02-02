@@ -53,9 +53,7 @@ async function getPlaybackQueue(): Promise<IPlaybackQueue> {
       headers: {
         Authorization: `Bearer ${token.accessToken}`,
       },
-      next: {
-        revalidate: 20,
-      },
+      cache: 'no-store',
     }
   );
   if (!response.ok) throw new Error('Failed to get playback queue');
