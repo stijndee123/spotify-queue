@@ -18,6 +18,11 @@ function convertDuration(duration: number) {
   return `${minutes}:${Number(seconds) < 10 ? '0' : ''}${seconds}`;
 }
 
+function truncateString(text: string, maxCharacters: number) {
+  if (text.length > maxCharacters) return text.slice(0, maxCharacters) + '...';
+  return text;
+}
+
 export function SongCard({
   title,
   artists,
@@ -27,10 +32,10 @@ export function SongCard({
   children,
 }: ISongCardProps) {
   return (
-    <Card className='flex items-center gap-4 rounded-lg p-2 dark:border-zinc-700 dark:bg-zinc-800'>
+    <Card className='flex w-full items-center gap-4 rounded-lg p-2 dark:border-zinc-700 dark:bg-zinc-800'>
       <Image
         alt='Cover'
-        className='rounded-md'
+        className='flex-initial rounded-md'
         width={50}
         height={50}
         src={coverUrl}
@@ -39,12 +44,14 @@ export function SongCard({
         }}
       />
       <div className='flex flex-1 flex-col justify-between overflow-hidden leading-tight'>
-        <span className='text-xs font-semibold'>{title}</span>
-        <span className='text-nowrap text-xs dark:text-zinc-400'>
-          {artists}
+        <span className='truncate text-xs font-semibold'>
+          {truncateString(title, 30)}
+        </span>
+        <span className='text-xs dark:text-zinc-400'>
+          {truncateString(artists, 40)}
         </span>
       </div>
-      <div className='flex items-center justify-center'>
+      <div className='flex flex-initial items-center justify-center'>
         {children ? (
           <>{children}</>
         ) : currentlyPlaying ? (
