@@ -10,6 +10,10 @@ const nextConfig = {
         hostname: 'i.scdn.co',
         protocol: 'https',
       },
+      {
+        hostname: 'media.giphy.com',
+        protocol: 'https',
+      },
     ],
   },
 };

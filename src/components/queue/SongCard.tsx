@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { HiMiniSpeakerWave } from 'react-icons/hi2';
+import { cn } from '../../lib/utils';
 import { Card } from '../ui/card';
 
 export interface ISongCardProps {
@@ -44,7 +45,12 @@ export function SongCard({
         }}
       />
       <div className='flex flex-1 flex-col justify-between overflow-hidden leading-tight'>
-        <span className='truncate text-xs font-semibold'>
+        <span
+          className={cn(
+            'truncate text-xs font-semibold',
+            currentlyPlaying ? 'text-indigo-500 dark:text-indigo-400' : ''
+          )}
+        >
           {truncateString(title, 30)}
         </span>
         <span className='text-xs dark:text-zinc-400'>
@@ -55,7 +61,7 @@ export function SongCard({
         {children ? (
           <>{children}</>
         ) : currentlyPlaying ? (
-          <HiMiniSpeakerWave className='text-lg text-green-500 drop-shadow-lg dark:text-green-500' />
+          <HiMiniSpeakerWave className='text-lg text-indigo-500 drop-shadow-lg dark:text-indigo-400' />
         ) : (
           <span className='text-xs'>{convertDuration(duration)}</span>
         )}
