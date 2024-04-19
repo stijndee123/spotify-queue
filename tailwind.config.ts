@@ -10,6 +10,9 @@ const config = {
   ],
   prefix: '',
   theme: {
+    fontFamily: {
+      sans: ['var(--font-geist-sans)'],
+    },
     container: {
       center: true,
       padding: '1rem',
