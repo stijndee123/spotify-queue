@@ -14,6 +14,14 @@ const nextConfig = {
         hostname: 'media.giphy.com',
         protocol: 'https',
       },
+      {
+        hostname: 'image-cdn-ak.spotifycdn.com',
+        protocol: 'https',
+      },
+      {
+        hostname: 'i2o.scdn.co',
+        protocol: 'https',
+      },
     ],
   },
 };

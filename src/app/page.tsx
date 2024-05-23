@@ -4,6 +4,7 @@ import {
   dehydrate,
 } from '@tanstack/react-query';
 import { Header } from '../components/Header';
+import { PlaylistsSection } from '../components/playlists/PlaylistsSection';
 import { QueueSection } from '../components/queue/QueueSection';
 import { SocialsSection } from '../components/socials/SocialsSection';
 import { QueryKeys } from '../lib/query.keys';
@@ -21,7 +22,7 @@ export default async function Home() {
       <main className='mx-auto flex h-full max-w-xl flex-col gap-5 px-5 py-5'>
         <div className='flex flex-col gap-10'>
           <SocialsSection />
-          {/* <PlaylistsSection /> */}
+          <PlaylistsSection />
           <QueueSection />
         </div>
         <footer className='flex items-center justify-center pb-5'>
