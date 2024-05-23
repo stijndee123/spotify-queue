@@ -22,7 +22,7 @@ export function QueueSection() {
   return (
     <Section
       id='queue'
-      title='Warteschlange'
+      title='Song Queue'
       loading={isLoading || isFetching}
       className='gap-5'
     >

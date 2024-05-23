@@ -50,13 +50,13 @@ export function AddSongForm({ onAddSong }: IAddSongFormProps) {
             render={({ field }) => (
               <FormItem className='flex-1'>
                 <FormControl>
-                  <Input placeholder='Suche' {...field} />
+                  <Input placeholder='Search' {...field} />
                 </FormControl>
               </FormItem>
             )}
           />
           <Button type='submit' variant={'secondary'}>
-            Suche
+            Search
           </Button>
         </form>
       </Form>
@@ -68,7 +68,7 @@ export function AddSongForm({ onAddSong }: IAddSongFormProps) {
                 {loading ? (
                   <FaArrowRotateRight className='animate-spin' />
                 ) : (
-                  'Keine Ergebnisse'
+                  'No results'
                 )}
               </span>
             </div>
@@ -78,7 +78,7 @@ export function AddSongForm({ onAddSong }: IAddSongFormProps) {
             searchResults.map((song, index) => (
               <SongCard key={index} {...song}>
                 <Button className='text-xs' onClick={() => onAddSong(song)}>
-                  Hinzufügen
+                  Add
                 </Button>
               </SongCard>
             ))}
