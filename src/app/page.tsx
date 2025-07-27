@@ -31,7 +31,7 @@ export default async function Home() {
             target='_blank'
             className='text-center text-xs text-gray-400'
           >
-            Made with ❤️ by drischdaan
+            
           </a>
         </footer>
       </main>
