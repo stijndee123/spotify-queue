@@ -48,3 +48,9 @@ export async function GET(request: NextRequest) {
   // Redirect naar home of een dashboard pagina
   return NextResponse.redirect(new URL('/', request.url));
 }
+
+export const SpotifyApiMethods = {
+  getPlaybackQueue,
+  search,
+  addSongToQueue,
+};
